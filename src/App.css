@@ -1,0 +1,10 @@
+/* Global app layout — component styles live in their own CSS files */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}

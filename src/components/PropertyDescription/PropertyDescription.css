@@ -1,0 +1,148 @@
+/* ── PropertyDescription ──────────────────────────────────── */
+.prop-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Section cards */
+.prop-desc__card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 30px 32px;
+}
+
+.prop-desc__section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prop-desc__section-title-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--green-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.prop-desc__section-title-icon svg {
+  width: 17px;
+  height: 17px;
+  color: var(--green-700);
+}
+
+.prop-desc__text {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--gray-600);
+}
+
+.prop-desc__text p + p {
+  margin-top: 12px;
+}
+
+/* Features list */
+.prop-desc__features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  margin-top: 6px;
+}
+
+.prop-desc__feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--gray-700);
+  padding: 4px 0;
+}
+
+.prop-desc__feature-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--green-50);
+  border: 1.5px solid var(--green-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.prop-desc__feature-check svg {
+  width: 10px;
+  height: 10px;
+  color: var(--green-700);
+}
+
+/* Neighborhood highlight */
+.prop-desc__neighborhood {
+  background: linear-gradient(135deg, var(--green-50) 0%, var(--white) 100%);
+  border-color: var(--green-100);
+}
+
+.prop-desc__neighborhood .prop-desc__text {
+  color: var(--gray-700);
+}
+
+/* Map embed placeholder */
+.prop-desc__map-placeholder {
+  margin-top: 16px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 220px;
+  background: var(--gray-100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px dashed var(--gray-300);
+}
+
+.prop-desc__map-placeholder svg {
+  width: 32px;
+  height: 32px;
+  color: var(--gray-400);
+}
+
+.prop-desc__map-placeholder p {
+  font-size: 13px;
+  color: var(--gray-400);
+}
+
+.prop-desc__map-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-700);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.prop-desc__map-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .prop-desc__card {
+    padding: 20px;
+  }
+
+  .prop-desc__features {
+    grid-template-columns: 1fr;
+  }
+}

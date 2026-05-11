@@ -1,0 +1,135 @@
+/* ── PropertyDetail Page ──────────────────────────────────── */
+.prop-detail {
+  min-height: 100vh;
+  background: var(--gray-50);
+}
+
+/* Two-column layout below the hero */
+.prop-detail__body {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 36px;
+  align-items: start;
+}
+
+/* Left column = description stack */
+.prop-detail__left {
+  min-width: 0;
+}
+
+/* Right column = stats + contact */
+.prop-detail__right {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Not found */
+.prop-detail__not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.prop-detail__not-found h2 {
+  font-size: 28px;
+  color: var(--gray-800);
+  margin-bottom: 12px;
+}
+
+.prop-detail__not-found p {
+  font-size: 15px;
+  color: var(--gray-500);
+  margin-bottom: 28px;
+}
+
+.prop-detail__not-found a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green-800);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.prop-detail__not-found a:hover {
+  background: var(--green-900);
+}
+
+/* Listings page (all properties) */
+.listings-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 32px;
+}
+
+.listings-page__header {
+  margin-bottom: 40px;
+}
+
+.listings-page__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-700);
+  margin-bottom: 8px;
+}
+
+.listings-page__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 36px;
+  color: var(--gray-900);
+  letter-spacing: -0.5px;
+}
+
+.listings-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .prop-detail__body {
+    grid-template-columns: 1fr;
+    padding: 28px 24px 60px;
+  }
+
+  .prop-detail__right {
+    position: static;
+  }
+
+  .listings-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .prop-detail__body {
+    padding: 20px 16px 48px;
+    gap: 20px;
+  }
+
+  .listings-page {
+    padding: 40px 20px;
+  }
+
+  .listings-page__grid {
+    grid-template-columns: 1fr;
+  }
+}
