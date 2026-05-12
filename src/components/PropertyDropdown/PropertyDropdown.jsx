@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { neighborhoods } from "../../data/neighborhoods";
 import "./PropertyDropdown.css";
 
-export function PropertyDropdown({ properties }) {
+export function PropertyDropdown({ properties, onClose }) {
   const fmt = (n) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -19,6 +19,7 @@ export function PropertyDropdown({ properties }) {
           key={prop.id}
           to={`/buy/${prop.slug}`}
           className="dropdown__item"
+          onClick={onClose}
         >
           <img
             src={prop.thumbnail}
@@ -37,7 +38,7 @@ export function PropertyDropdown({ properties }) {
       ))}
 
       <div className="dropdown__footer">
-        <Link to="/buy" className="dropdown__view-all">
+        <Link to="/buy" className="dropdown__view-all" onClick={onClose}>
           View all listings →
         </Link>
       </div>
@@ -45,7 +46,7 @@ export function PropertyDropdown({ properties }) {
   );
 }
 
-export function NeighborhoodsDropdown() {
+export function NeighborhoodsDropdown({ onClose }) {
   return (
     <div className="dropdown dropdown--neighborhoods">
       <p className="dropdown__header">Explore Neighborhoods</p>
@@ -55,6 +56,7 @@ export function NeighborhoodsDropdown() {
           key={n.id}
           to={`/neighborhoods/${n.slug}`}
           className="dropdown__item"
+          onClick={onClose}
         >
           <div className="dropdown__info">
             <p className="dropdown__neighborhood-name">{n.name}</p>
@@ -66,7 +68,7 @@ export function NeighborhoodsDropdown() {
       ))}
 
       <div className="dropdown__footer">
-        <Link to="/neighborhoods" className="dropdown__view-all">
+        <Link to="/neighborhoods" className="dropdown__view-all" onClick={onClose}>
           View all neighborhoods →
         </Link>
       </div>

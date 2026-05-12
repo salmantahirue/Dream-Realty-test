@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { properties } from "../../data/properties";
 import {
   PropertyDropdown,
@@ -43,14 +43,23 @@ function useOutsideClick(ref, callback) {
 }
 
 export default function Navbar() {
-  const [openMenu, setOpenMenu] = useState(null); // 'buy' | 'neighborhoods' | null
+  const [openMenu, setOpenMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+
+  // Close dropdown whenever the route changes
+  useEffect(() => {
+    setOpenMenu(null);
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   const navRef = useRef(null);
   useOutsideClick(navRef, () => setOpenMenu(null));
 
   const toggle = (menu) =>
     setOpenMenu((prev) => (prev === menu ? null : menu));
+
+  const close = () => setOpenMenu(null);
 
   return (
     <header className="navbar" ref={navRef}>
@@ -91,7 +100,7 @@ export default function Navbar() {
               <ChevronDown open={openMenu === "buy"} />
             </button>
             {openMenu === "buy" && (
-              <PropertyDropdown properties={properties} />
+              <PropertyDropdown properties={properties} onClose={close} />
             )}
           </li>
 
@@ -105,7 +114,9 @@ export default function Navbar() {
               Neighborhoods
               <ChevronDown open={openMenu === "neighborhoods"} />
             </button>
-            {openMenu === "neighborhoods" && <NeighborhoodsDropdown />}
+            {openMenu === "neighborhoods" && (
+              <NeighborhoodsDropdown onClose={close} />
+            )}
           </li>
         </ul>
 
@@ -140,7 +151,7 @@ export default function Navbar() {
       <div className={`navbar__mobile-menu${mobileOpen ? " navbar__mobile-menu--open" : ""}`}>
         <ul className="navbar__mobile-nav">
           <li>
-            <Link to="/" className="navbar__mobile-link" onClick={() => setMobileOpen(false)}>
+            <Link to="/" className="navbar__mobile-link">
               Home
             </Link>
           </li>
@@ -154,11 +165,15 @@ export default function Navbar() {
                 to={`/buy/${p.slug}`}
                 className="navbar__mobile-link"
                 style={{ paddingLeft: 24, fontSize: 14 }}
-                onClick={() => setMobileOpen(false)}
               >
                 {p.title} — {p.city}
               </Link>
             ))}
+          </li>
+          <li>
+            <p className="navbar__mobile-link" style={{ color: "var(--gray-400)", fontSize: 11, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", padding: "8px 14px 4px" }}>
+              Neighborhoods
+            </p>
           </li>
         </ul>
 
