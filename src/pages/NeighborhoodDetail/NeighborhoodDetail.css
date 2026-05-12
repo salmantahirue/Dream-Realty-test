@@ -1,0 +1,386 @@
+/* ── NeighborhoodDetail Page ──────────────────────────────── */
+.nbhd {
+  min-height: 100vh;
+  background: var(--white);
+}
+
+/* ── Page header ──────────────────────────────────────────── */
+.nbhd__header {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 36px 32px 28px;
+}
+
+.nbhd__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-bottom: 18px;
+}
+
+.nbhd__breadcrumb a {
+  color: var(--green-700);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nbhd__breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.nbhd__breadcrumb-sep {
+  color: var(--gray-300);
+}
+
+.nbhd__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--gray-900);
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+}
+
+/* ── Body grid ────────────────────────────────────────────── */
+.nbhd__body {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 36px;
+  align-items: start;
+}
+
+/* ── Left column ──────────────────────────────────────────── */
+.nbhd__left {
+  min-width: 0;
+}
+
+/* Hero image */
+.nbhd__img-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.nbhd__img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.nbhd__img-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: var(--green-700);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 4px;
+}
+
+.nbhd__img-caption {
+  position: absolute;
+  bottom: 16px;
+  left: 90px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Description section */
+.nbhd__section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 14px;
+}
+
+.nbhd__desc-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--gray-600);
+}
+
+/* ── Right column ─────────────────────────────────────────── */
+.nbhd__right {
+  position: sticky;
+  top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Stats card */
+.nbhd__stats-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.nbhd__stats-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-900);
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.nbhd__stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 24px;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 14px;
+}
+
+.nbhd__stat-row:last-child {
+  border-bottom: none;
+}
+
+.nbhd__stat-key {
+  color: var(--gray-500);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.nbhd__stat-val {
+  color: var(--gray-800);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Contact card */
+.nbhd__contact-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.nbhd__contact-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-900);
+  padding: 20px 24px 6px;
+}
+
+.nbhd__contact-card-desc {
+  font-size: 13px;
+  color: var(--gray-500);
+  padding: 0 24px 20px;
+  line-height: 1.5;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.nbhd__contact-actions {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nbhd__contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.nbhd__contact-btn:active {
+  transform: scale(0.98);
+}
+
+.nbhd__contact-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.nbhd__contact-btn--call {
+  background: var(--green-800);
+  color: var(--white);
+}
+
+.nbhd__contact-btn--call:hover {
+  background: var(--green-900);
+}
+
+.nbhd__contact-btn--message {
+  background: var(--green-700);
+  color: var(--white);
+}
+
+.nbhd__contact-btn--message:hover {
+  background: var(--green-800);
+}
+
+/* ── Not found ────────────────────────────────────────────── */
+.nbhd__not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.nbhd__not-found h2 {
+  font-size: 26px;
+  color: var(--gray-800);
+  margin-bottom: 10px;
+}
+
+.nbhd__not-found p {
+  font-size: 15px;
+  color: var(--gray-500);
+  margin-bottom: 24px;
+}
+
+.nbhd__not-found a {
+  background: var(--green-800);
+  color: var(--white);
+  padding: 11px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* ── All neighborhoods list page ─────────────────────────── */
+.nbhd-list {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 32px 80px;
+}
+
+.nbhd-list__eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-700);
+  margin-bottom: 8px;
+}
+
+.nbhd-list__title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 36px;
+  color: var(--gray-900);
+  letter-spacing: -0.5px;
+  margin-bottom: 40px;
+}
+
+.nbhd-list__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.nbhd-card {
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  background: var(--white);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nbhd-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.nbhd-card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.nbhd-card__body {
+  padding: 18px 20px;
+}
+
+.nbhd-card__name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.nbhd-card__desc {
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .nbhd__body {
+    grid-template-columns: 1fr;
+  }
+
+  .nbhd__right {
+    position: static;
+  }
+
+  .nbhd-list__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .nbhd__header {
+    padding: 24px 20px 16px;
+  }
+
+  .nbhd__title {
+    font-size: 28px;
+  }
+
+  .nbhd__body {
+    padding: 0 20px 56px;
+  }
+
+  .nbhd__img {
+    height: 260px;
+  }
+
+  .nbhd-list {
+    padding: 40px 20px 56px;
+  }
+
+  .nbhd-list__grid {
+    grid-template-columns: 1fr;
+  }
+}

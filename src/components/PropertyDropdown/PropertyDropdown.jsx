@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { neighborhoods } from "../../data/neighborhoods";
 import "./PropertyDropdown.css";
 
 export function PropertyDropdown({ properties }) {
@@ -45,38 +46,30 @@ export function PropertyDropdown({ properties }) {
 }
 
 export function NeighborhoodsDropdown() {
-  const neighborhoods = [
-    {
-      name: "North Hutchinson Island",
-      city: "Fort Pierce, FL",
-      desc: "Pristine beaches & waterfront living",
-    },
-    {
-      name: "South Beach",
-      city: "Miami Beach, FL",
-      desc: "Art Deco luxury & vibrant nightlife",
-    },
-    {
-      name: "Lincoln Park",
-      city: "Chicago, IL",
-      desc: "Urban sophistication by the lakefront",
-    },
-  ];
-
   return (
     <div className="dropdown dropdown--neighborhoods">
       <p className="dropdown__header">Explore Neighborhoods</p>
 
       {neighborhoods.map((n) => (
-        <a key={n.name} href="#" className="dropdown__item">
+        <Link
+          key={n.id}
+          to={`/neighborhoods/${n.slug}`}
+          className="dropdown__item"
+        >
           <div className="dropdown__info">
             <p className="dropdown__neighborhood-name">{n.name}</p>
             <p className="dropdown__neighborhood-desc">
-              {n.city} · {n.desc}
+              {n.city}, {n.state} · {n.dropdownDesc}
             </p>
           </div>
-        </a>
+        </Link>
       ))}
+
+      <div className="dropdown__footer">
+        <Link to="/neighborhoods" className="dropdown__view-all">
+          View all neighborhoods →
+        </Link>
+      </div>
     </div>
   );
 }
