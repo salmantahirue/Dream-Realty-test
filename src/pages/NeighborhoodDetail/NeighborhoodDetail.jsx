@@ -73,6 +73,7 @@ export default function NeighborhoodDetail() {
           {/* Description */}
           <h2 className="nbhd__section-title">Neighborhood Description</h2>
           <p className="nbhd__desc-text">{nbhd.description}</p>
+
         </div>
 
         {/* Right column */}
